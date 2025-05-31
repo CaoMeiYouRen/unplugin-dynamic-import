@@ -1,3 +1,6 @@
 export interface Options {
-  // define your plugin options here
+  /**
+   * Output format, e.g. 'cjs' for CommonJS.
+   */
+  format?: string
 }
