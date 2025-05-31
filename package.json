@@ -2,7 +2,6 @@
     "name": "unplugin-dynamic-import",
     "type": "module",
     "version": "0.1.0",
-    "packageManager": "pnpm@10.11.0",
     "description": "Unplugin for dynamic import transformation in various build tools",
     "license": "MIT",
     "author": "CaoMeiYouRen",
