@@ -1,24 +1,33 @@
 name: Release
-
 on:
   push:
-    tags:
-      - 'v*'
-
+    branches:
+      - master
+# 仅取消针对当前工作流正在进行的作业或运行
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3
+          persist-credentials: false
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: lts/*
-
-      - run: npx changelogithub
-        env:
+          version: "latest"
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: pnpm i --fix-lockfile
+      - run: pnpm run lint
+      - run: pnpm run build
+      - env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm run release
