@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - run: pnpm i --fix-lockfile
+      - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build
       - env:
