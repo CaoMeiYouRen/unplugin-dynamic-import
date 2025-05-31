@@ -1,6 +1,5 @@
 import type { UnpluginFactory } from 'unplugin'
 import type { Options } from './types'
-import acorn from 'acorn'
 import { createUnplugin } from 'unplugin'
 
 export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) => {
@@ -21,11 +20,6 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
       let ast: any
       if (typeof this?.parse === 'function') {
         ast = this.parse(code)
-      }
-      else {
-        // 测试环境下用 acorn 解析
-        // acorn 解析结果的节点没有 type: 'Program'，但 ImportExpression 结构一致
-        ast = acorn.parse(code, { ecmaVersion: 'latest', sourceType: 'module' })
       }
       if (!ast)
         return null

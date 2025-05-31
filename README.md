@@ -2,22 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/unplugin-dynamic-import?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-dynamic-import)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
-
-## Template Usage
-
-To use this template, clone it down using:
-
-```bash
-npx degit unplugin/unplugin-dynamic-import my-unplugin
-```
-
-And do a global replacement of `unplugin-dynamic-import` with your plugin name.
-
-Then you can start developing your unplugin 🔥
-
-To test your plugin, run: `pnpm run dev`
-To release a new version, run: `pnpm run release`
+Unplugin for dynamic import transformation in various build tools
 
 ## Install
 
