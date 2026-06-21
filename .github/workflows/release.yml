@@ -28,11 +28,11 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: "lts/*"
       - run: pnpm i --frozen-lockfile
       - run: pnpm run lint
       - run: pnpm run build
-      - env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run release
+      # - env:
+      #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: pnpm run release
