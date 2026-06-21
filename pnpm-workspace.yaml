@@ -1,8 +1,10 @@
 allowBuilds:
+  core-js: set this to true or false
   esbuild: true
   unrs-resolver: true
 
 onlyBuiltDependencies:
+  - core-js
   - esbuild
   - unrs-resolver
 
