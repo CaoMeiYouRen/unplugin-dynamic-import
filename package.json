@@ -112,5 +112,13 @@
     "vitest": "^3.2.6",
     "webpack": "^5.99.9"
   },
-  "pnpm": {}
+  "pnpm": {
+    "overrides": {
+      "@farmfe/core": "^1.7.6",
+      "brace-expansion": "^2.1.2",
+      "fast-uri": "^3.1.4",
+      "js-yaml": "^4.3.0",
+      "postcss": "^8.5.18"
+    }
+  }
 }
